@@ -1,4 +1,6 @@
 import os
+if os.path.exists("env.py"):
+    import env
 from flask import Flask
 
 app = Flask(__name__)

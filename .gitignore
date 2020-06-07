@@ -1,0 +1,5 @@
+eny.py
+
+import os
+
+os.environ.setdefault("MONGO_URI", "paste-your-mongo-string-here")

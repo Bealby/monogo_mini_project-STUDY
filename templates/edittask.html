@@ -4,7 +4,6 @@
 <h3>Edit Task</h3>
 <div class="row">
     <form action="{{ url_for('edit_task', task_id=task._id) }}" method="POST"  class="col s12">
-        <div class="row">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
@@ -20,7 +19,6 @@
                 </select>
                     <label>Task Category</label>
                 </div>
-            </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <input id="task_name" name="task_name" type="text" class="validate" value="{{task.task_name}}">
@@ -61,4 +59,13 @@
         </div>
     </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        due_date = Date.parse(`{{task.due_date}}`)
+        $(`#due_date`).pickadate(`picker`).set(`select`, due_date, {format: `dd/mm/yyyy`}).trigger(`change`)
+    });
+</script>
+
 {% endblock %}
